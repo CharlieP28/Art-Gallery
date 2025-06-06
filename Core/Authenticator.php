@@ -33,6 +33,10 @@ class Authenticator{
 
         session_regenerate_id(true);
     }
+
+    public function loginArtist($ArtistName){
+        $_SESSION['user']['name'] = $ArtistName;
+    }
     
     public function logout(){
         Session::flush();

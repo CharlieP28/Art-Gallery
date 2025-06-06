@@ -5,7 +5,7 @@
 <main>
 <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
   <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-    <img class="mx-auto h-10 w-auto" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company">
+    <img class="mx-auto h-10 w-auto" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=orange&shade=600" alt="Your Company">
     <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">Register for a new account.</h2>
   </div>
 
@@ -19,7 +19,7 @@
               <p class = "text-red-500 text-xs mt-2"> 
                 <?= $errors['email']?>
              </p>
-            <?php endif;?>
+          <?php endif;?>
         </div>
       </div>
 
@@ -33,12 +33,19 @@
               <p class = "text-red-500 text-xs mt-2"> 
                 <?= $errors['password']?>
              </p>
-            <?php endif;?>
+          <?php endif;?>
+          <div class="mb-4 mt-6">
+              <label for="accountType" class="block text-sm font-medium text-gray-700">Choose an account type:</label>
+              <select id="accountType" name="accountType" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300">
+                <option value="Artist">Artist</option>
+                <option value="Viewer">Viewer</option>
+              </select>
+            </div>
         </div>
       </div>
 
       <div>
-        <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Register</button>
+        <button type="submit" class="flex w-full justify-center rounded-md bg-orange-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600">Register</button>
       </div>
     </form>
   </div>

@@ -9,8 +9,8 @@ class Session {
     }
 
     public static function get($key, $default = null){
-        return $_SESSION['_flash'][$key] ?? $_SESSION[$key] ?? $default;
-    }
+        return $_SESSION[$key] ?? $_SESSION['_flash'][$key] ?? $default;
+    }    
 
     public static function has ($key){
         return (bool)static::get($key);

@@ -15,6 +15,7 @@ $router->get('/Contact', 'contact.php');
 
 $router->get('/Register', 'Registration/create.php')->only('guest');
 $router->post('/Register', 'Registration/store.php');
+$router->post('/ArtistRegistration', 'Registration/ArtistRegistration/store.php')->only('guest');
 
 $router->get('/Login', 'Sessions/create.php')->only('guest');
 $router->post('/Sessions', 'Sessions/store.php')->only('guest');
@@ -28,6 +29,6 @@ $router->get('/Upload', 'Artworks/create.php')->only('auth');
 $router->post('/Upload', 'Artworks/upload.php')->only('auth');
 
 $router->get('/Artist', 'Artists/create.php')->only('auth');
-$router->post('/Artist', 'Artists/store.php')->only('auth');
+
 
 

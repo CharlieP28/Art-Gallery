@@ -1,2 +1,1 @@
-Hannah is cute
-Charlie is not
+Simple CRUD application for images with a multi-level user login system
