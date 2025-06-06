@@ -10,7 +10,7 @@ use Core\App;
 $db = App::resolve('Core\Database');
 
 $artist = $db->query('select id from artists where Name = :name;', [
-    'name' => ucwords(strtolower($_POST['Name']))
+    'name' => $_SESSION['user']['name'] 
 ]) -> find();
 
 $artistId = $artist['id'];
