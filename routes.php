@@ -20,15 +20,15 @@ $router->post('/ArtistRegistration', 'Registration/ArtistRegistration/store.php'
 $router->get('/Login', 'Sessions/create.php')->only('guest');
 $router->post('/Sessions', 'Sessions/store.php')->only('guest');
 
-$router->delete('/Sessions', 'Sessions/destroy.php')->only('auth');
+$router->delete('/Sessions', 'Sessions/destroy.php')->only('user');
 
-$router->get('/Artworks', 'Artworks/index.php')->only('auth');
-$router->get('/Artwork', 'Artworks/show.php')->only('auth');
+$router->get('/Artworks', 'Artworks/index.php')->only('user');
+$router->get('/Artwork', 'Artworks/show.php')->only('user');
 
-$router->get('/Upload', 'Artworks/create.php')->only('auth');
-$router->post('/Upload', 'Artworks/upload.php')->only('auth');
+$router->get('/Upload', 'Artworks/create.php')->only('artist');
+$router->post('/Upload', 'Artworks/upload.php')->only('artist');
 
-$router->get('/Artist', 'Artists/create.php')->only('auth');
+$router->get('/Artist', 'Artists/create.php')->only('guest');
 
 
 
