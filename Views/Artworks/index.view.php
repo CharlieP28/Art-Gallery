@@ -5,10 +5,10 @@
 <main>
   <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
     <ul>
-        <?php foreach ($artworks as $artwork) : ?>
+        <?php foreach ($thumbnails as $thumbnail) : ?>
         <li>
-            <a href="/Artwork?id=<?=$artwork['id']?>" >
-                <?=htmlspecialchars($artwork['Artwork'])?>
+            <a href="/Artwork?id=<?=$thumbnail['id']?>" >
+              <img src="/<?=$thumbnail['Thumbnail']?>" alt="Artwork" class ="mb-5">
             </a>
         </li>
         <?php endforeach ?>

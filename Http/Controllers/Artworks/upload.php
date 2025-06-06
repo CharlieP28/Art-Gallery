@@ -9,23 +9,23 @@ use Core\App;
 
 $db = App::resolve('Core\Database');
 
-$artistId = $db->query('select id from artists where Name = :name;', [
-    'name' => $_POST['name']
+$artist = $db->query('select id from artists where Name = :name;', [
+    'name' => $_POST['Name']
 ]) -> find();
+
+$artistId = $artist['id'];
 
 
 if ($original -> uploaded){
     $original ->file_new_name_body   = $original -> file_src_name_body . "Original";
     $original ->image_resize         = false;
-    $original ->process(base_path('Images/'));
+    $original ->process(base_path('Public/Images/'));
     if (! $original ->processed){
         echo 'error' . $original ->error;
     } else{
         $finalFilename = $original->file_dst_name;
         $finalPathOriginal = 'Images/' . $finalFilename;
 
-
-        
     }
     
 };
@@ -35,19 +35,21 @@ if($thumb -> uploaded){
     $thumb->image_resize         = true;
     $thumb->image_x              = 100;
     $thumb->image_ratio_y        = true;
-    $thumb->process(base_path('Images/'));
+    $thumb->process(base_path('Public/Images/'));
     if ($thumb->processed){
         $thumb->clean();
         $finalFilename = $thumb->file_dst_name;
-        $finalPath = 'Images/' . $finalFilename;
+        $finalPathThumbnail = 'Images/' . $finalFilename;
 
-        $db -> query("insert into Artworks ('Artwork', 'Thumbnail', 'Description', 'Title', 'ArtistId') VALUES (:Artwork, :Thumbnail, :Description, :Title, :ArtistId);", [
+        $db->query("INSERT INTO Artworks (`Artwork`, `Thumbnail`, `Description`, `Title`, `ArtistId`)
+            VALUES (:Artwork, :Thumbnail, :Description, :Title, :ArtistId)", [
             "Artwork" => $finalPathOriginal,
             "Thumbnail" => $finalPathThumbnail,
-            "Description" => $_POST['description'],
-            "Title" => $_POST['title'],
+            "Description" => $_POST['Description'],
+            "Title" => $_POST['Title'],
             "ArtistId" => $artistId
         ]);
+
     } else{
         echo 'error' . $thumb->error;
     }

@@ -4,10 +4,10 @@
 
 <main>
   <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 flex justify-center items-center">
-    <p ><?= $artwork['Artwork']?></p>
+  <img src="/<?=$artwork['Artwork']?>" alt="Artwork">
 </div>
 <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 flex justify-center items-center">
-    <p><?= $artwork['Description']?></p>
+    <?=$artwork['Description']?>
   </div>
   <div class = "mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
     <a href = "/Artworks" class = "text-blue-500 hover:underline">Return</a>
