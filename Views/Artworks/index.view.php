@@ -4,17 +4,27 @@
 
 <main>
   <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-    <ul>
+    <a href="/Upload" class="mb-5 bg-orange-800 text-white hover:bg-orange-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium hover:bg-orange-700 hover:text-white">Upload an Image</a>
+    <a href="/Artist" class="mb-5 bg-orange-800 text-white hover:bg-orange-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium hover:bg-orange-700 hover:text-white">Add an Artist</a>
+    <ul class = "mt-5">
         <?php foreach ($thumbnails as $thumbnail) : ?>
         <li>
-            <a href="/Artwork?id=<?=$thumbnail['id']?>" >
-              <img src="/<?=$thumbnail['Thumbnail']?>" alt="Artwork" class ="mb-5">
-            </a>
+          <div class = "flex flex-col items-start">
+            <div>
+              <p><?=$thumbnail['Title']?></p>
+            </div>
+            <div class = "flex flex-align-center">
+              <a href="/Artwork?id=<?=$thumbnail['id']?>" class = >
+                <img src="/<?=$thumbnail['Thumbnail']?>" alt="Artwork" class ="mb-5">
+              </a>
+              <p><?=substr($thumbnail['Description'], 0, 10) . '...'?></p>
+              
+            </div>
+          </div>
         </li>
         <?php endforeach ?>
     </ul>
-    <a href="/Upload" class="bg-orange-800 text-white hover:bg-orange-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium hover:bg-orange-700 hover:text-white">Upload</a>
-  </div>
+    </div>
 </main>
 
 <?php require base_path("Views/Partials/foot.php")?>

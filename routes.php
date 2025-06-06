@@ -27,5 +27,7 @@ $router->get('/Artwork', 'Artworks/show.php')->only('auth');
 $router->get('/Upload', 'Artworks/create.php')->only('auth');
 $router->post('/Upload', 'Artworks/upload.php')->only('auth');
 
+$router->get('/Artist', 'Artists/create.php')->only('auth');
+$router->post('/Artist', 'Artists/store.php')->only('auth');
 
 
