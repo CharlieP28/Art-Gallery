@@ -13,7 +13,7 @@ $artist = $db->query("select name from artists where id = :id", [
 ]) -> find();
 
 view("Artworks/show.view.php", [
-    'heading' => $artwork['Title'] . " by " . $artist['name'],
+    'heading' => $artwork['Title'] . " by " . ucwords(strtolower($artist['name'])),
     'artwork' => $artwork
 ]);
 
