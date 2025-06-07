@@ -33,7 +33,7 @@ $router->get('/Artist', 'Artists/create.php')->only('guest');
 $router ->get('/Dashboard', 'Dashboard/index.php') ->only('artist');
 $router->get('/DashboardArtwork', 'Dashboard/show.php') ->only('artist');
 $router->get('/DashboardEdit', 'Dashboard/edit.php') ->only('artist');
-
-
+$router->post('/DashboardEdit', 'Dashboard/store.php') ->only('artist');
+$router->delete('/DashboardEdit', 'Dashboard/destroy.php') ->only('artist');
 
 

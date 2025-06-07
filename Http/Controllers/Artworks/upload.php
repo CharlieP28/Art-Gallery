@@ -55,5 +55,5 @@ if($thumb -> uploaded){
     }
 }; 
 
-header('location: /Upload');
+header('location: /Dashboard');
 exit();
