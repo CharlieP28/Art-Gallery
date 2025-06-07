@@ -6,7 +6,7 @@ use Core\Session;
 
 class Authenticator{
 
-    public function attempt($email, $password){
+    public function attempt($email, $password, $AccountType){
         $user = App::resolve('Core\Database') -> query("select * from users where email = :email", [
             'email' => $email
         ]) -> find();
@@ -17,8 +17,10 @@ class Authenticator{
                     'email' => $email,
                     'id' => $userId
                 ]);
-            
-                return true;
+                if($AccountType = $user['accountType']){
+                    return true;
+                }
+                return false;
             }
         }
 
