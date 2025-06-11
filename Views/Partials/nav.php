@@ -11,7 +11,8 @@
                 <a href="/" class="<?= url("/") ? 'bg-orange-900 text-white' :  'text-gray-300'?> hover:bg-orange-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium " aria-current="page">Home</a>
                 <?php if($_SESSION['user'] ?? false) : ?>
                   <a href="/Artworks" class="<?= url("/Artworks") ? 'bg-orange-900 text-white' :  'text-gray-300'?> hover:bg-orange-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium " aria-current="page">Artworks</a>
-                <?php endif ; ?> 
+                  <a href="/Artists" class="<?= url("/Artists") ? 'bg-orange-900 text-white' :  'text-gray-300'?> hover:bg-orange-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium " aria-current="page">Artists</a>
+                  <?php endif ; ?> 
                 <?php if ($_SESSION['user']['name'] ?? false) : ?>
                   <a href="/Dashboard" class="<?= url("/Dashboard") ? 'bg-orange-900 text-white' :  'text-gray-300'?> hover:bg-orange-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium " aria-current="page">Artists Dashboard</a>
                 <?php endif ?>

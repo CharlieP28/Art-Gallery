@@ -36,4 +36,8 @@ $router->get('/DashboardEdit', 'Dashboard/edit.php') ->only('artist');
 $router->post('/DashboardEdit', 'Dashboard/store.php') ->only('artist');
 $router->delete('/DashboardEdit', 'Dashboard/destroy.php') ->only('artist');
 
+$router->get('/Artists', 'Artists/index.php')->only('user');
+$router->get('/ArtistPage', 'Artists/show.index.php')->only('user');
+$router->get('/ArtistWork', 'Artists/show.php')->only('user');
+
 
