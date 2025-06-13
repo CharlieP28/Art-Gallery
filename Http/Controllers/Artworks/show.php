@@ -26,9 +26,14 @@ if(count($likes)){
 
 
 
+$likeCount = count($db->query("select*from Likes")->findALL());
+
+
 view("Artworks/show.view.php", [
     'heading' => $artwork['Title'] . " by " . ucwords(strtolower($artist['name'])),
     'artwork' => $artwork,
-    'liked' => $liked
+    'liked' => $liked,
+    'likeCount' =>$likeCount
 ]);
+
 

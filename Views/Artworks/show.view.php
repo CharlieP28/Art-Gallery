@@ -19,6 +19,7 @@
         <span class="sr-only">Like Button</span>
         </button>
     </form>
+    <p><?= (string)$likeCount?></p>
 </div>
 </main>
 
