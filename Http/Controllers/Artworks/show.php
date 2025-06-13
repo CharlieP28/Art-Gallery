@@ -13,9 +13,22 @@ $artist = $db->query("select * from Artists where id = :id", [
     'id'=> $artwork['ArtistId']
 ])->find();
 
+$likes = $db->query("select * from Likes where UserId = :UserId and ArtworkId = :ArtworkId", [
+    'UserId' => $_SESSION['user']['id'],
+    'ArtworkId' => (int)$_GET['id']
+])->findALL();
+
+if(count($likes)){
+    $liked = true;
+}else{
+    $liked = false;
+};
+
+
 
 view("Artworks/show.view.php", [
     'heading' => $artwork['Title'] . " by " . ucwords(strtolower($artist['name'])),
-    'artwork' => $artwork
+    'artwork' => $artwork,
+    'liked' => $liked
 ]);
 

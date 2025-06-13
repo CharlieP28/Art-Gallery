@@ -25,11 +25,10 @@ $router->delete('/Sessions', 'Sessions/destroy.php')->only('user');
 $router->get('/Artworks', 'Artworks/index.php')->only('user');
 $router->post("/Artworks", 'Artworks/search.php')->only('user');
 $router->get('/Artwork', 'Artworks/show.php')->only('user');
+$router->post('/Artwork', 'Artworks/like.php')->only('user');
 
 $router->get('/Upload', 'Artworks/create.php')->only('artist');
 $router->post('/Upload', 'Artworks/upload.php')->only('artist');
-
-$router->get('/Artist', 'Artists/create.php')->only('guest');
 
 $router ->get('/Dashboard', 'Dashboard/index.php') ->only('artist');
 $router->get('/DashboardArtwork', 'Dashboard/show.php') ->only('artist');
@@ -41,5 +40,7 @@ $router->get('/Artists', 'Artists/index.php')->only('user');
 $router->post("/Artists", 'Artists/search.php')->only('user');
 $router->get('/ArtistPage', 'Artists/show.index.php')->only('user');
 $router->get('/ArtistWork', 'Artists/show.php')->only('user');
+$router->get('/Artist', 'Artists/create.php')->only('guest');
+$router->post("/Artist", "Artists/like.php")->only("guest");
 
 
