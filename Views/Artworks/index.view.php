@@ -7,7 +7,7 @@
     <div>
         <form method = "post" action = "/Artworks">
             <input type = "text" name = "search" placeholder = "Search" class = "w-[250px] rounded mb-6">
-            <button type="submit" class = "bg-orange-700 text-gray-300 w-[100px] rounded-md px-2 text-sm font-medium hover:bg-orange-500 hover:text-white rounded-md px-2 py-1 text-sm font-medium">Submit</button>
+            <button type="Submit" class = "bg-orange-700 text-gray-300 w-[100px] rounded-md px-2 text-sm font-medium hover:bg-orange-500 hover:text-white rounded-md px-2 py-1 text-sm font-medium">Search</button>
         </form>
     </div>
     <ul class = "mt-5">
