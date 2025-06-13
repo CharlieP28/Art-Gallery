@@ -17,8 +17,8 @@ $router->get('/Register', 'Registration/create.php')->only('user');
 $router->post('/Register', 'Registration/store.php');
 $router->post('/ArtistRegistration', 'Registration/ArtistRegistration/store.php')->only('user');
 
-$router->get('/Login', 'Sessions/create.php')->only('user');
-$router->post('/Sessions', 'Sessions/store.php')->only('user');
+$router->get('/Login', 'Sessions/create.php')->only('guest');
+$router->post('/Sessions', 'Sessions/store.php')->only('guest');
 
 $router->delete('/Sessions', 'Sessions/destroy.php')->only('user');
 
