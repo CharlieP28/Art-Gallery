@@ -2,11 +2,15 @@
 
 // use Core\Database;
 use Core\App;
+use Core\Session;
 
 $db = App::resolve('Core\Database');
 
+$id = $_GET['id'] ?? Session::get('id');
+Session::unflash();
+
 $artwork = $db->query("select * from artworks where id = :id", [
-    'id' => $_GET['id']
+    'id' => $id
 ])->find();
 
 $artist = $db->query("select * from Artists where id = :id", [
@@ -15,7 +19,7 @@ $artist = $db->query("select * from Artists where id = :id", [
 
 $likes = $db->query("select * from Likes where UserId = :UserId and ArtworkId = :ArtworkId", [
     'UserId' => $_SESSION['user']['id'],
-    'ArtworkId' => (int)$_GET['id']
+    'ArtworkId' => $id
 ])->findALL();
 
 if(count($likes)){
@@ -24,16 +28,18 @@ if(count($likes)){
     $liked = false;
 };
 
-
-
 $likeCount = count($db->query("select*from Likes")->findALL());
 
+$comments = $db -> query("select * from comments where ArtworkId = :ArtworkId", [
+    "ArtworkId" => $id
+]) -> findALL();
 
 view("Artworks/show.view.php", [
     'heading' => $artwork['Title'] . " by " . ucwords(strtolower($artist['name'])),
     'artwork' => $artwork,
     'liked' => $liked,
-    'likeCount' =>$likeCount
+    'likeCount' =>$likeCount,
+    'comments' => $comments
 ]);
 
 

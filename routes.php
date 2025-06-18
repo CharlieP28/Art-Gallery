@@ -26,6 +26,7 @@ $router->get('/Artworks', 'Artworks/index.php')->only('user');
 $router->post("/Artworks", 'Artworks/search.php')->only('user');
 $router->get('/Artwork', 'Artworks/show.php')->only('user');
 $router->post('/Artwork', 'Artworks/like.php')->only('user');
+$router->post('/Comment', 'Artworks/comment.php')->only('user');
 
 $router->get('/Upload', 'Artworks/create.php')->only('artist');
 $router->post('/Upload', 'Artworks/upload.php')->only('artist');
