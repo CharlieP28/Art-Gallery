@@ -28,7 +28,9 @@ if(count($likes)){
     $liked = false;
 };
 
-$likeCount = count($db->query("select*from Likes")->findALL());
+$likeCount = count($db->query("select*from Likes where ArtworkId = :ArtworkId", [
+    'ArtworkId' => $id
+])->findALL());
 
 $comments = $db -> query("select * from comments where ArtworkId = :ArtworkId", [
     "ArtworkId" => $id
